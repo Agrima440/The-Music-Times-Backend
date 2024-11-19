@@ -8,3 +8,6 @@ const router=express.Router()
 router.post("/register",registerUser)
 router.post("/login",loginController)
 router.get("/all",requireSignIn,checkRole(["admin"]), usersController)
+
+export default router
+ 

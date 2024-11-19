@@ -7,9 +7,7 @@ import userRoute from "./routes/userRoute.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
-import "./config/passport.js"; // Import Passport configuration
 import cookieParser from "cookie-parser";
-import cookieSession from "cookie-session"
 // Load environment variables
 dotenv.config();
 
