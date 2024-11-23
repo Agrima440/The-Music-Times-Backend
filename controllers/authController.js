@@ -117,6 +117,24 @@ export const usersController = async (req, res) => {
   }
 };
 
+export const logoutController=async(req,res)=>{
+  try{
+res.clearCookie("token")
+res.status(200).send({
+  success:true,
+  message:"Logged Out Successfully",
+})
+  }
+  catch(error){
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error while logging out",
+      error,
+    });
+  }
+}
+
 //  Auth by google
 
 // export const loginSuccessController=async(req,res)=>{

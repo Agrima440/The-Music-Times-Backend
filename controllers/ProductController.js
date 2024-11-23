@@ -5,17 +5,14 @@ import multer from "multer";
 import slugify from "slugify";
 
 // Cloudinary Configuration
-cloudinary.config({
-  // cloud_name: process.env.CLOUD_NAME,
-  // api_key: process.env.CLOUD_API_KEY,
-  // api_secret: process.env.CLOUD_API_SECRET,
-  cloud_name: process.env.CLOUD_NAME || 'dlw5ad03j',
-  api_key: process.env.CLOUD_API_KEY || '894392721939297',
-  api_secret: process.env.CLOUD_API_SECRET || 'ghAtltweXUmNH5vzKl1HDE5fsHU',
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUD_NAME || "dlw5ad03j",
+  api_key: process.env.CLOUD_API_KEY || "894392721939297",
+  api_secret: process.env.CLOUD_API_SECRET || "ghAtltweXUmNH5vzKl1HDE5fsHU",
 });
 
 // Multer Configuration for Image Uploads
-const storage = multer.diskStorage({});
+const storage = multer.diskStorage({}); 
 export const upload = multer({ storage });
 
 // Create Product
@@ -28,7 +25,7 @@ export const createProductController = async (req, res) => {
       return res.status(400).send({ success: false, message: "All fields are required" });
     }
 
-    // Validate Category
+    // Validate Category  
     const existingCategory = await Category.findById(category);
     if (!existingCategory) {
       return res.status(404).send({ success: false, message: "Category not found" });

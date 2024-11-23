@@ -6,6 +6,8 @@ import connectDB from "./config/db.js";
 import userRoute from "./routes/userRoute.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 // Load environment variables
@@ -35,6 +37,8 @@ app.get("/", (req, res) =>
 app.use("/api/user", userRoute);
 app.use("/api/category", categoryRoutes); // Added category routes
 app.use("/api/product", productRoutes); // Added product routes
+app.use("/api/order", orderRoutes);
+app.use("/api/cart", cartRoutes);
 
 
 // Start server
